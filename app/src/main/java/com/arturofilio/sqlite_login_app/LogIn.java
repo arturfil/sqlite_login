@@ -31,7 +31,6 @@ public class LogIn extends AppCompatActivity {
                 logInUser();
             }
         });
-
     }
 
     public void logInUser() {
@@ -40,12 +39,20 @@ public class LogIn extends AppCompatActivity {
         String password = mEditPassword.getText().toString();
 
         Account account = db.login(username, password);
-        if(account == null) {
-            Toast.makeText(this, "Something went wrong, please check username & password", Toast.LENGTH_SHORT).show();
+        if(username.isEmpty()|| password.isEmpty()) {
+            Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+        } else if (db.checkUsername(username)) {
+            Toast.makeText(this, "Username not found!", Toast.LENGTH_SHORT).show();
+        } else if (db.checkPassword(password)) {
+            Toast.makeText(this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LogIn.this, Profile.class);
-            startActivity(intent);
+            try {
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LogIn.this, Profile.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         }
-    }
+     }
 }

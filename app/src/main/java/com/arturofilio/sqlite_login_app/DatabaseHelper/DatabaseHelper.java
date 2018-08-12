@@ -25,8 +25,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(
+    public void onCreate(SQLiteDatabase db) {
+            db.execSQL(
                 "CREATE TABLE " +
                 TABLE_NAME + "(" +
                 COL0 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -38,8 +38,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        onCreate(sqLiteDatabase);
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL(" DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
     }
 
     public boolean create(Account account) {
@@ -78,23 +79,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return account;
     }
 
-    public Account checkUsername(String username) {
-        Account account = null;
-        try {
-            SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-            Cursor cursor = sqLiteDatabase.rawQuery(" SELECT * FROM " + TABLE_NAME +
-                    " WHERE username = ?", new String[] {username});
-            if(cursor.moveToFirst()) {
-                account = new Account();
-                account.setId(cursor.getInt(0));
-                account.setUsername(cursor.getString(1));
-                account.setPassword(cursor.getString(2));
-                account.setFullName(cursor.getString(3));
-                account.setBudget(cursor.getInt(4));
-            }
-        } catch (Exception e) {
-            account = null;
+    public boolean checkUsername(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM " + TABLE_NAME + " WHERE username = ?",
+                new String[]{username}
+        );
+        if(cursor.getCount()>0) {
+            return false;
+        } else {
+            return true;
         }
-        return account;
     }
+
+    public boolean checkPassword(String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT * FROM " + TABLE_NAME + " WHERE password = ?",
+                new String[]{password}
+        );
+        if (cursor.getCount() > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
 }

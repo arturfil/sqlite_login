@@ -31,27 +31,35 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerAccount();
-                Intent signIn = new Intent(SignUp.this, LogIn.class);
-                startActivity(signIn);
             }
         });
     }
 
     public void registerAccount() {
-        try {
-            DatabaseHelper db = new DatabaseHelper(getApplicationContext());
-            Account account = new Account();
-            account.setUsername(mEdtUsername.getText().toString());
-            account.setPassword(mEdtPassword.getText().toString());
-            account.setFullName(mEdtFullName.getText().toString());
-            account.setBudget(Double.parseDouble(mMonthBgt.getText().toString()));
-            if(db.create(account)) {
-                Toast.makeText(this, "Sing Up Successful!", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Couldn't Sign Up, please try again.", Toast.LENGTH_SHORT).show();
+
+        DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+        Account account = new Account();
+        account.setUsername(mEdtUsername.getText().toString());
+        account.setPassword(mEdtPassword.getText().toString());
+        account.setFullName(mEdtFullName.getText().toString());
+        account.setBudget(Double.parseDouble(mMonthBgt.getText().toString()));
+
+        String username = mEdtUsername.getText().toString();
+        String password = mEdtPassword.getText().toString();
+
+        if(username.isEmpty()|| password.isEmpty()) {
+            Toast.makeText(this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+        } else if (!db.checkUsername(username)) {
+            Toast.makeText(this, "Username already exists!", Toast.LENGTH_SHORT).show();
+        } else {
+            try {
+                db.create(account);
+                Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SignUp.this, LogIn.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-        } catch (Exception e) {
-            Toast.makeText(this, "Couldn't Sign Up, please try again.", Toast.LENGTH_SHORT).show();
         }
     }
 
