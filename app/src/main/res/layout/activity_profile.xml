@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,27 +7,121 @@
     android:layout_height="match_parent"
     tools:context=".LogIn">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Full Name Here"
+        android:id="@+id/txtName"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"/>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:id="@+id/LinLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textBgt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:textColorHint="@android:color/black"
-            android:layout_marginTop="100dp"
-            android:text="Monthly Budget"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="BUDGET"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtBgt"
+                android:layout_weight="5"
+                android:text="344444.00"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+        
+        <!--<TextView-->
+            <!--android:id="@+id/textBgt"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:textColorHint="@android:color/black"-->
+            <!--android:layout_marginTop="80dp"-->
+            <!--android:text="$839.00"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:textSize="40sp"-->
+            <!--/>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="20">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="DAY EXP."
+                android:textColor="@android:color/black"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:id="@+id/textDayExp"
+                android:text="Daily Budget"
+                android:layout_marginLeft="10dp"
+                android:gravity="left"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PAYMENTS"
+            android:gravity="left"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
-            />
+            android:textSize="18sp"/>
+
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/pmtList"
+                android:layout_below="@+id/LinLayout1">
+            </ListView>
 
     </LinearLayout>
 
 
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="10dp"
+            app:fabSize="normal"
+            android:backgroundTint="@color/btnSignActive"
+            android:src="@drawable/ic_money"
+            android:id="@+id/fabAddContact"/>
 
-</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
