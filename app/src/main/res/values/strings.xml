@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">sqlite_login_app</string>
+
+    <string name="slogan">
+        Budget your money and save it in order to invest it.
+        Live with financial health.
+    </string>
+
+
+</resources>
