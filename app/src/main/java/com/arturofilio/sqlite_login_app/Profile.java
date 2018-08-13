@@ -24,7 +24,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        mTextFullName = (TextView) findViewById(R.id.txtName);
+        //mTextFullName = (TextView) findViewById(R.id.txtName);
         mTextBgt = (TextView) findViewById(R.id.txtBgt);
         mDayExp = (TextView) findViewById(R.id.textDayExp);
 
@@ -43,7 +43,6 @@ public class Profile extends AppCompatActivity {
 
         String dayExp = df.format(budget / remaining);
 
-        mTextFullName.setText(account.getFullName());
         mTextBgt.setText(String.valueOf("$" + budget));
         mDayExp.setText(String.valueOf("$" + dayExp));
 

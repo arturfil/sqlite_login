@@ -48,7 +48,7 @@ public class LogIn extends AppCompatActivity {
         } else {
             try {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LogIn.this, Profile.class);
+                Intent intent = new Intent(LogIn.this, Home.class);
                 intent.putExtra("account", account);
                 startActivity(intent);
             } catch (Exception e) {

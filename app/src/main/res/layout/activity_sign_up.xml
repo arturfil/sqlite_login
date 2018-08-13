@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".LogIn">
 
     <LinearLayout
@@ -20,15 +21,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtUsername"
             android:hint="Username"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:inputType="text"
-            app:met_baseColor="@android:color/black"
-            app:met_primaryColor="@android:color/black"
+            app:met_baseColor="@android:color/white"
+            app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="false"
             />
 
@@ -37,15 +38,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtFullName"
             android:hint="Full Name"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:inputType="text"
-            app:met_baseColor="@android:color/black"
-            app:met_primaryColor="@android:color/black"
+            app:met_baseColor="@android:color/white"
+            app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="false"
             />
 
@@ -54,15 +55,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtBgt"
             android:hint="Monthly Budget"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:inputType="numberDecimal"
-            app:met_baseColor="@android:color/black"
-            app:met_primaryColor="@android:color/black"
+            app:met_baseColor="@android:color/white"
+            app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="false"
             />
 
@@ -71,15 +72,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtPassword"
             android:hint="Password"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:inputType="textPassword"
-            app:met_baseColor="@android:color/black"
-            app:met_primaryColor="@android:color/black"
+            app:met_baseColor="@android:color/white"
+            app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="false"
             />
 
@@ -88,15 +89,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/edtConfirm"
             android:hint="Confirm Password"
-            android:textColorHint="@android:color/black"
+            android:textColorHint="@android:color/white"
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:inputType="textPassword"
-            app:met_baseColor="@android:color/black"
-            app:met_primaryColor="@android:color/black"
+            app:met_baseColor="@android:color/white"
+            app:met_primaryColor="@android:color/white"
             app:met_singleLineEllipsis="false"
             />
 
@@ -108,9 +109,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnSignUp"
             android:text="Sign Up"
+            android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_margin="8dp"
-            android:background="@color/blueActiveButton" />
+            android:background="@drawable/rec_gradient"/>
 
     </LinearLayout>
 

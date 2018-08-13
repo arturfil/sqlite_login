@@ -12,6 +12,7 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/cardInfo"
             app:cardBackgroundColor="@color/greenMoney"
             android:background="@drawable/background_gradient">
@@ -28,9 +29,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="30dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp"
                     android:layout_weight="20">
 
@@ -90,7 +90,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/relLayout2">
+            android:id="@+id/relLayout2"
+            android:layout_below="@+id/cardInfo">
 
             <ListView
                 android:layout_width="match_parent"
@@ -104,16 +105,16 @@
 
     </RelativeLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:elevation="10dp"
-        app:fabSize="normal"
-        android:backgroundTint="@color/greenMoney"
-        android:src="@drawable/ic_money"
-        android:id="@+id/fabAddContact"/>
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_marginEnd="20dp"-->
+        <!--android:layout_marginBottom="20dp"-->
+        <!--android:elevation="10dp"-->
+        <!--app:fabSize="normal"-->
+        <!--android:backgroundTint="@color/greenMoney"-->
+        <!--android:src="@drawable/ic_money"-->
+        <!--android:id="@+id/fabAddContact"/>-->
 
 </android.support.design.widget.CoordinatorLayout>
