@@ -1,5 +1,6 @@
 package com.arturofilio.sqlite_login_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -54,8 +55,8 @@ public class Home extends AppCompatActivity
         mTextBgt = (TextView) findViewById(R.id.txtBgt);
         mDayExp = (TextView) findViewById(R.id.textDayExp);
 
+        // Getting data from previous Acivity;
         Intent intent = getIntent();
-
         Account account = (Account) intent.getSerializableExtra("account");
 
         double budget = account.getBudget();
@@ -113,7 +114,11 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            Intent intent = getIntent();
+            Account account = (Account) intent.getSerializableExtra("account");
+            Intent moveTo = new Intent(Home.this, Profile.class);
+            moveTo.putExtra("account", account);
+            startActivity(moveTo);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

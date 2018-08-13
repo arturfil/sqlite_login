@@ -3,6 +3,7 @@ package com.arturofilio.sqlite_login_app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,8 +16,7 @@ public class Profile extends AppCompatActivity {
 
     private static final String TAG = "Profile";
 
-    private TextView mTextBgt, mDayExp, mTextFullName;
-    private ListView mListViewPmts;
+    private EditText mMthBdgt, mUserName, mTextFullName, mPassword;
 
 
     @Override
@@ -25,8 +25,10 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         //mTextFullName = (TextView) findViewById(R.id.txtName);
-        mTextBgt = (TextView) findViewById(R.id.txtBgt);
-        mDayExp = (TextView) findViewById(R.id.textDayExp);
+        mUserName = (EditText) findViewById(R.id.edtUsername);
+        mTextFullName = (EditText) findViewById(R.id.edtFullName);
+        mMthBdgt = (EditText) findViewById(R.id.edtBgt);
+        mPassword = (EditText) findViewById(R.id.edtPassword);
 
         Intent intent = getIntent();
 
@@ -43,8 +45,11 @@ public class Profile extends AppCompatActivity {
 
         String dayExp = df.format(budget / remaining);
 
-        mTextBgt.setText(String.valueOf("$" + budget));
-        mDayExp.setText(String.valueOf("$" + dayExp));
+        mUserName.setText(account.getUsername());
+        mTextFullName.setText(account.getFullName());
+        mMthBdgt.setText(String.valueOf(account.getBudget()));
+        mPassword.setText(account.getPassword());
+
 
     }
 
