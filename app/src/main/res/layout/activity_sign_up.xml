@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -112,7 +112,7 @@
             android:textSize="20sp"
             android:textColor="@android:color/white"
             android:layout_margin="8dp"
-            android:background="@drawable/rec_gradient"/>
+            android:background="@color/signupButton"/>
 
     </LinearLayout>
 

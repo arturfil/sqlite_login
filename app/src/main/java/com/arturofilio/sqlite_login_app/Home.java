@@ -24,7 +24,7 @@ import java.util.Calendar;
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TextView mTextBgt, mDayExp;
+    private TextView mTextBgt, mDayExp, mTextFullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //mTextFullName = (TextView) findViewById(R.id.txtName);
+        mTextFullName = (TextView) findViewById(R.id.txtName);
         mTextBgt = (TextView) findViewById(R.id.txtBgt);
         mDayExp = (TextView) findViewById(R.id.textDayExp);
 
@@ -59,6 +59,7 @@ public class Home extends AppCompatActivity
         Intent intent = getIntent();
         Account account = (Account) intent.getSerializableExtra("account");
 
+        String name = account.getUsername();
         double budget = account.getBudget();
 
         Calendar cal = Calendar.getInstance();
@@ -73,6 +74,8 @@ public class Home extends AppCompatActivity
         mTextBgt.setText(String.valueOf("$" + budget));
         mDayExp.setText(String.valueOf("$" + dayExp));
 
+        // Set Name for User on side drawer
+        View headerView = navigationView.getHeaderView(0);
     }
 
     @Override
@@ -119,16 +122,13 @@ public class Home extends AppCompatActivity
             Intent moveTo = new Intent(Home.this, Profile.class);
             moveTo.putExtra("account", account);
             startActivity(moveTo);
-        } else if (id == R.id.nav_gallery) {
-
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            // Log Out
+            Intent signOut = new Intent(Home.this, MainActivity.class);
+            signOut.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(signOut);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

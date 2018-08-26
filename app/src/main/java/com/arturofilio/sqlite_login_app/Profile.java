@@ -81,6 +81,7 @@ public class Profile extends AppCompatActivity {
                         Toast.makeText(Profile.this, "Updated account succesfuly!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Profile.this, LogIn.class);
                         intent.putExtra("account", account);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     } else {
                         Toast.makeText(Profile.this,

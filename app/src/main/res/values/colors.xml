@@ -8,7 +8,8 @@
     <color name="btnSignActive">#A9d440</color>
 
     <color name="greenMoney">#2ac191</color>
-    <color name="greenMoney2">#7aefad</color>
+    <color name="signupButton">#5cead0</color>
+    <color name="loginButton">#8aec9f</color>
 
     <color name="greenGradient">#2ac191</color>
 
